@@ -73,7 +73,7 @@ fun MoreWeatherDetails() {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(painterResource(R.drawable.ic_sunny), null)
+            Image(painterResource(getWeatherIcon(1)), null)
             AppText(text = "Sunny", fontSize = 16.sp)
         }
         Column(
@@ -83,6 +83,16 @@ fun MoreWeatherDetails() {
             TitleContentInRow(title = "Precipitation:", content = "1%")
             TitleContentInRow(title = "Wind:", content = "8 m/h")
         }
+    }
+}
+
+private fun getWeatherIcon(type: Int): Int = when (type) {
+    1 -> R.drawable.ic_sunny
+    2 -> R.drawable.ic_snow_winter
+    3 -> R.drawable.ic_moonlight
+    4 -> R.drawable.ic_sunny_cloudy_rainy
+    else -> {
+        R.drawable.ic_sunny
     }
 }
 
